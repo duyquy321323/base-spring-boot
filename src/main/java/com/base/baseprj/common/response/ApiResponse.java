@@ -10,24 +10,11 @@ import lombok.Getter;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ApiResponse<T> {
 
-	private final boolean success;
 	private final int status;
 	private final String message;
 	private final T data;
 
-	public static <T> ApiResponse<T> ok(T data) {
-		return new ApiResponse<>(true, 200, "Success", data);
-	}
-
-	public static <T> ApiResponse<T> ok(String message, T data) {
-		return new ApiResponse<>(true, 200, message, data);
-	}
-
-	public static <T> ApiResponse<T> error(int status, String message) {
-		return new ApiResponse<>(false, status, message, null);
-	}
-
-	public static <T> ApiResponse<T> error(int status, String message, T data) {
-		return new ApiResponse<>(false, status, message, data);
-	}
+    public ApiResponse(int status, String message) {
+        this(status, message, null);
+    }
 }

@@ -19,7 +19,7 @@ public class HelloController {
 	@Operation(summary = "Success response mẫu")
 	@GetMapping
 	public ApiResponse<String> hello() {
-		return ApiResponse.ok("Hello World");
+		return new ApiResponse<>(200, "Success", "Hello World");
 	}
 
 	@Operation(summary = "Error response mẫu")
